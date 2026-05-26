@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil TKA 2026 - SDN Pisangan Timur 01</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Library CSS & Icons -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700;900&family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Konfigurasi Tema Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Academic Crimson (Warna Merah Resmi/Maroon yang elegan dan berwibawa)
+                        schoolRed: { 50: '#fff1f2', 100: '#ffe4e6', 500: '#e11d48', 700: '#be123c', 800: '#9f1239', 900: '#881337' },
+                        // Oxford Navy (Warna Biru Institusi/Universitas yang melambangkan kredibilitas)
+                        schoolBlue: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#172554' },
+                        // Ink Slate (Abu-abu kebiruan gelap untuk teks yang sangat tajam dan profesional)
+                        schoolDark: { 500: '#64748b', 700: '#334155', 800: '#1e293b', 900: '#0f172a' }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html,
+        body {
+            /* Fix for PDF cut off - Avoid height 100% lock */
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+            /* schoolBlue-50 */
+        }
+
+        .doc-shadow {
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .pattern-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(15, 23, 42, 0.04) 1px, transparent 0);
+            background-size: 32px 32px;
+        }
+
+        .ribbon {
+            background: linear-gradient(135deg, #172554 0%, #1e40af 100%);
+        }
+
+        .search-glow:focus-within {
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), 0 10px 25px -5px rgba(37, 99, 235, 0.1);
+        }
+
+        /* --- PRINT STYLES --- */
+        @media print {
+            @page {
+                size: A4 portrait;
+                /* Paksa kertas ke ukuran A4 Proporsional */
+                margin: 0mm;
+                /* Menghilangkan header/footer URL & Tanggal bawaan browser */
+            }
+
+            html,
+            body {
+                height: 100% !important;
+                min-height: 100% !important;
+                overflow: hidden !important;
+                /* Paksa agar tidak merembet ke halaman 2 */
+                background: white !important;
+                background-image: none !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 10mm 15mm !important;
+                /* Margin kertas diperkecil agar pas 1 halaman */
+                box-sizing: border-box;
+            }
+
+            /* Reset class pembungkus yang membuat jarak kosong */
+            .w-full.min-h-screen {
+                padding: 0 !important;
+                margin: 0 !important;
+                min-height: auto !important;
+                display: block !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .doc-shadow {
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+            }
+
+            .w-full.max-w-3xl {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* COMPACTION PADDING & MARGIN (Agar muat 1 Halaman) */
+            img[alt="Logo SDN Pisangan Timur 01"] {
+                width: 75px !important;
+                height: 75px !important;
+                margin-bottom: 5px !important;
+            }
+
+            header {
+                padding: 0 !important;
+                margin-bottom: 15px !important;
+                border-bottom: 2px solid #e2e8f0 !important;
+                padding-bottom: 12px !important;
+            }
+
+            /* Mengurangi jarak-jarak elemen yang terlalu besar */
+            h1 {
+                font-size: 1.5rem !important;
+                margin-bottom: 4px !important;
+            }
+
+            .mb-8 {
+                margin-bottom: 1rem !important;
+            }
+
+            .mb-6 {
+                margin-bottom: 1rem !important;
+            }
+
+            .mb-3 {
+                margin-bottom: 0.25rem !important;
+            }
+
+            .pb-5 {
+                padding-bottom: 0.5rem !important;
+            }
+
+            .p-6,
+            .p-5 {
+                padding: 0.75rem !important;
+            }
+
+            .gap-y-5 {
+                row-gap: 0.5rem !important;
+            }
+
+            #result-section {
+                padding: 0 !important;
+            }
+
+            .result-card {
+                padding: 0 !important;
+                background: white !important;
+                border: none !important;
+            }
+
+            /* Mencegah tabel terpotong & memadatkan sel */
+            table {
+                page-break-inside: avoid;
+                width: 100% !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            th,
+            td {
+                padding: 0.6rem !important;
+                page-break-inside: avoid;
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-schoolBlue-50 via-white to-schoolBlue-50 pattern-bg antialiased selection:bg-schoolBlue-200 selection:text-schoolBlue-900">
+    <div class="w-full min-h-screen flex flex-col items-center justify-start px-4 py-8 md:py-12">
+
+        <!-- Document Container -->
+        <div class="w-full max-w-3xl bg-white/95 backdrop-blur-sm doc-shadow rounded-2xl overflow-hidden fade-up">
+
+            <!-- Top Ribbon -->
+            <div class="ribbon h-2 w-full"></div>
+            <div class="h-1 w-full bg-gradient-to-r from-schoolRed-700 via-schoolRed-500 to-schoolRed-700"></div>
+
+            <!-- Header Section -->
+            <header class="px-6 md:px-12 pt-8 pb-6 text-center border-b border-schoolDark-500/10">
+                <div class="flex justify-center mb-4">
+                    <img src="logo.png" alt="Logo SDN Pisangan Timur 01"
+                        class="w-24 h-24 md:w-28 md:h-28 object-contain drop-shadow-md"
+                        onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-xs font-medium text-gray-400 border border-gray-200\'>Logo</div>'">
+                </div>
+                <p class="text-xs md:text-sm text-schoolDark-700 font-semibold tracking-widest uppercase mb-1">
+                    Pemerintah Provinsi DKI Jakarta</p>
+                <p class="text-xs text-schoolDark-500 font-medium uppercase tracking-wider mb-3">Dinas Pendidikan Kota
+                    Administrasi Jakarta Timur</p>
+                <h1 class="font-display text-2xl md:text-3xl text-schoolDark-900 mb-2 font-bold tracking-tight">SDN
+                    PISANGAN TIMUR 01
+                </h1>
+                <p
+                    class="text-sm text-schoolDark-500 mb-0 font-medium bg-schoolBlue-50 inline-block px-4 py-1.5 rounded-full border border-schoolBlue-100 shadow-sm">
+                    Daftar Kolektif Hasil Tes Kemampuan Akademik (DKHTKA) Tahun
+                    Pelajaran 2025/2026</p>
+            </header>
+
+            <!-- VIEW 1: HALAMAN SAMBUTAN -->
+            <section id="view-sambutan" class="px-6 md:px-12 py-8 fade-up no-print">
+                <div
+                    class="bg-gradient-to-br from-schoolBlue-50/80 to-white border border-schoolBlue-100 rounded-2xl p-6 md:p-8 text-center relative overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <i data-lucide="quote"
+                        class="absolute -top-2 -left-2 w-32 h-32 text-schoolBlue-500/5 rotate-180 transform -scale-x-100"></i>
+                    <div class="relative z-10">
+                        <h3 class="text-lg md:text-xl font-bold text-schoolDark-900 mb-5">Sambutan Kepala Satuan
+                            Pendidikan</h3>
+                        <p
+                            class="text-sm md:text-base text-schoolDark-700 leading-relaxed italic mb-8 max-w-2xl mx-auto font-serif">
+                            "Assalamu’alaikum Warahmatullahi Wabarakatuh,<br>
+                            Salam sejahtera bagi kita semua,<br><br>
+                            Anak-anakku siswa Kelas VI yang Ibu sayangi dan banggakan,<br>
+                            Pelaksanaan Tes Kemampuan Akademik (TKA) Tahun 2026 ini merupakan salah satu instrumen
+                            penting dalam mengukur dan memetakan capaian kompetensi dasar yang telah kalian pelajari.
+                            Hasil yang tercantum dalam dokumen kolektif ini adalah cerminan dari kesungguhan, kerja
+                            keras, dan proses belajar yang telah kalian lalui bersama bapak dan ibu guru di
+                            sekolah.<br><br>
+                            Jadikanlah hasil evaluasi akademik ini sebagai motivasi diri sekaligus kompas penunjuk arah
+                            untuk terus meningkatkan kualitas belajar, mengasah potensi, dan mempersiapkan fondasi diri
+                            yang kokoh guna menyongsong gerbang pendidikan di jenjang Sekolah Menengah Pertama (SMP).
+                            Teruslah belajar dengan penuh integritas, karena prestasi yang sesungguhnya dibentuk dari
+                            karakter yang mulia."
+                        </p>
+                        <div class="inline-block border-t-2 border-schoolRed-500 pt-3 mb-8 px-6">
+                            <p class="text-sm font-bold text-schoolDark-900">Anna Samosir, S.Pd., SD., M.Si.</p>
+                            <p class="text-xs text-schoolDark-500 font-medium mt-0.5">NIP. 197303122000032004</p>
+                        </div>
+                        <div class="text-center">
+                            <button onclick="bukaHalamanPencarian()"
+                                class="inline-flex items-center gap-2 bg-schoolBlue-600 hover:bg-schoolBlue-700 active:scale-95 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg shadow-schoolBlue-600/20 transition-all duration-200 cursor-pointer group">
+                                Lanjut Cek Hasil Nilai TKA <i data-lucide="arrow-right"
+                                    class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW 2: PENCARIAN -->
+            <div id="view-pencarian" class="hidden">
+                <section class="px-6 md:px-12 py-8 no-print border-b border-gray-100">
+                    <div class="text-center mb-6">
+                        <div
+                            class="inline-flex items-center justify-center w-12 h-12 bg-schoolBlue-50 text-schoolBlue-600 rounded-full mb-3 border border-schoolBlue-100">
+                            <i data-lucide="search" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-schoolDark-900 mb-2">Pencarian Nilai Siswa</h3>
+                        <p class="text-sm text-schoolDark-500 max-w-sm mx-auto">Silakan masukkan 10 digit Nomor Induk
+                            Siswa Nasional (NISN) Anda untuk melihat transkrip.</p>
+                    </div>
+
+                    <form id="search-form" class="max-w-md mx-auto relative group search-glow rounded-xl">
+                        <div
+                            class="relative flex items-center bg-white border-2 border-gray-200 rounded-xl overflow-hidden transition-colors group-focus-within:border-schoolBlue-400">
+                            <div class="pl-4 pr-2 text-gray-400">
+                                <i data-lucide="credit-card" class="w-5 h-5"></i>
+                            </div>
+                            <input type="text" id="search-input" placeholder="Ketik NISN Anda..." inputmode="numeric"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                class="w-full py-4 pr-4 bg-transparent text-schoolDark-900 font-bold text-lg placeholder:text-gray-400 placeholder:font-normal focus:outline-none"
+                                autocomplete="off" maxlength="10">
+                            <button type="submit"
+                                class="mr-2 px-6 py-2.5 bg-schoolBlue-600 hover:bg-schoolBlue-700 active:scale-95 text-white rounded-lg flex items-center justify-center transition-all shadow-sm cursor-pointer font-medium text-sm">
+                                Cari
+                            </button>
+                        </div>
+                        <p id="error-msg"
+                            class="absolute -bottom-6 left-0 w-full text-sm text-schoolRed-500 font-medium hidden text-center">
+                        </p>
+                    </form>
+                </section>
+
+                <!-- Efek Loading -->
+                <div id="loading-state" class="hidden py-16 text-center no-print">
+                    <div class="relative inline-flex mb-4">
+                        <div class="w-12 h-12 border-4 border-schoolBlue-100 rounded-full"></div>
+                        <div
+                            class="absolute top-0 left-0 w-12 h-12 border-4 border-schoolBlue-600 rounded-full border-t-transparent animate-spin">
+                        </div>
+                    </div>
+                    <p class="text-schoolDark-500 font-medium animate-pulse">Menghubungkan ke pangkalan data TKA...</p>
+                </div>
+
+                <!-- Hasil Pencarian -->
+                <section id="result-section" class="px-6 md:px-12 py-8 hidden print-card"></section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="px-6 md:px-12 py-5 bg-gray-50 border-t border-gray-200 text-center no-print">
+                <p class="text-xs text-schoolDark-500 font-medium">© SDN Pisangan Timur 01</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Database lengkap hasil transkrip PDF TKA 2026 SDN Pisangan Timur 01
+        const students = [
+            { no: "001", nopes: "T1-26-01-05-0435-0001-8", nisn: "3133415165", nama: "ROBY FADLI HARTADI", ttl: "JAKARTA, 14 Februari 2013", mat: "80.00", pMat: "Baik", ind: "76.67", pInd: "Baik" },
+            { no: "002", nopes: "T1-26-01-05-0435-0002-7", nisn: "0139622219", nama: "ZAQIAH APRILLIA JASMINE", ttl: "JAKARTA, 17 April 2013", mat: "73.33", pMat: "Baik", ind: "86.67", pInd: "Baik" },
+            { no: "003", nopes: "T1-26-01-05-0435-0003-6", nisn: "0138057696", nama: "MUHAMMAD AZAM ARDIYANTO", ttl: "JAKARTA, 13 Juni 2013", mat: "73.33", pMat: "Baik", ind: "80.00", pInd: "Baik" },
+            { no: "004", nopes: "T1-26-01-05-0435-0004-5", nisn: "3133218384", nama: "MUHAMMAD ZIGGY SAPUTRA", ttl: "JAKARTA, 30 Agustus 2013", mat: "23.33", pMat: "Kurang", ind: "53.33", pInd: "Memadai" },
+            { no: "005", nopes: "T1-26-01-05-0435-0005-4", nisn: "3133546686", nama: "ASMARA FEBRIYANTI", ttl: "JAKARTA, 22 Februari 2013", mat: "23.33", pMat: "Kurang", ind: "40.00", pInd: "Kurang" },
+            { no: "006", nopes: "T1-26-01-05-0435-0006-3", nisn: "3130908555", nama: "AISYAH NAIRA PUTRI", ttl: "JAKARTA, 8 Mei 2013", mat: "60.00", pMat: "Baik", ind: "80.00", pInd: "Baik" },
+            { no: "007", nopes: "T1-26-01-05-0435-0007-2", nisn: "3139620114", nama: "ABIDZAR BILAL GUNAWAN", ttl: "CIAMIS, 11 Juni 2013", mat: "43.33", pMat: "Memadai", ind: "80.00", pInd: "Baik" },
+            { no: "008", nopes: "T1-26-01-05-0435-0008-9", nisn: "3132538420", nama: "ALIFAH SYIFA CHOERUNNISA", ttl: "JAKARTA, 17 Mei 2013", mat: "60.00", pMat: "Baik", ind: "76.67", pInd: "Baik" },
+            { no: "009", nopes: "T1-26-01-05-0435-0009-8", nisn: "3133187592", nama: "SATRIA SEHAN", ttl: "BEKASI, 17 Maret 2013", mat: "40.00", pMat: "Memadai", ind: "66.67", pInd: "Memadai" },
+            { no: "010", nopes: "T1-26-01-05-0435-0010-7", nisn: "3139068292", nama: "ZAIRAH MAICILLA ARBIE", ttl: "JAKARTA, 7 Mei 2013", mat: "63.33", pMat: "Baik", ind: "66.67", pInd: "Memadai" },
+            { no: "011", nopes: "T1-26-01-05-0435-0011-6", nisn: "3130193791", nama: "NAIRA AZZAHRA", ttl: "JAKARTA, 22 Januari 2013", mat: "43.33", pMat: "Memadai", ind: "73.33", pInd: "Memadai" },
+            { no: "012", nopes: "T1-26-01-05-0435-0012-5", nisn: "0137095045", nama: "ZIDAN ALFARO", ttl: "Karanganyar, 22 Oktober 2013", mat: "60.00", pMat: "Baik", ind: "76.67", pInd: "Baik" },
+            { no: "013", nopes: "T1-26-01-05-0435-0013-4", nisn: "0137301283", nama: "JESSICA LILLIAN SEMBIRING", ttl: "JAKARTA, 13 Maret 2013", mat: "93.33", pMat: "Baik", ind: "96.67", pInd: "Baik - Istimewa" },
+            { no: "014", nopes: "T1-26-01-05-0435-0014-3", nisn: "0134943098", nama: "RAFANDRA AQLAN ALKHALIFI PUA UPA", ttl: "JAKARTA, 13 Juni 2013", mat: "66.67", pMat: "Baik", ind: "80.00", pInd: "Baik" },
+            { no: "015", nopes: "T1-26-01-05-0435-0015-2", nisn: "3139372874", nama: "NAIRA SYAFIYAH", ttl: "JAKARTA, 21 Juli 2013", mat: "63.33", pMat: "Baik", ind: "93.33", pInd: "Baik" },
+            { no: "016", nopes: "T1-26-01-05-0435-0016-9", nisn: "3137143839", nama: "FARIED IQBAL", ttl: "JAKARTA, 20 Juni 2013", mat: "60.00", pMat: "Baik", ind: "83.33", pInd: "Baik" },
+            { no: "017", nopes: "T1-26-01-05-0435-0017-8", nisn: "3128361300", nama: "HAIKAL YUSUF HABIBIE", ttl: "JAKARTA, 21 September 2012", mat: "53.33", pMat: "Memadai", ind: "80.00", pInd: "Baik" },
+            { no: "018", nopes: "T1-26-01-05-0435-0018-7", nisn: "3121196409", nama: "NAZWA RIZKIA", ttl: "SERANG, 6 Oktober 2012", mat: "50.00", pMat: "Memadai", ind: "46.67", pInd: "Kurang" },
+            { no: "019", nopes: "T1-26-01-05-0435-0019-6", nisn: "3134311386", nama: "ICHSAN SABRY", ttl: "JAKARTA, 3 Januari 2013", mat: "63.33", pMat: "Baik", ind: "80.00", pInd: "Baik" },
+            { no: "020", nopes: "T1-26-01-05-0435-0020-5", nisn: "3121913751", nama: "ABI PUTRA PRAKASA", ttl: "JAKARTA, 5 Desember 2012", mat: "53.33", pMat: "Memadai", ind: "93.33", pInd: "Baik" },
+            { no: "021", nopes: "T1-26-01-05-0435-0021-4", nisn: "3125178647", nama: "GESANG MANGUN KUSUMO", ttl: "JAKARTA, 21 Oktober 2012", mat: "66.67", pMat: "Baik", ind: "83.33", pInd: "Baik" },
+            { no: "022", nopes: "T1-26-01-05-0435-0022-3", nisn: "3129852051", nama: "FIKRY SETIAWAN", ttl: "BEKASI, 7 Oktober 2012", mat: "36.67", pMat: "Memadai", ind: "76.67", pInd: "Baik" },
+            { no: "023", nopes: "T1-26-01-05-0435-0023-2", nisn: "0138982196", nama: "MADE RAJENDRA SETIAWAN", ttl: "JAKARTA, 8 Oktober 2013", mat: "50.00", pMat: "Memadai", ind: "83.33", pInd: "Baik" },
+            { no: "024", nopes: "T1-26-01-05-0435-0024-9", nisn: "3138808557", nama: "NATHANAEL ARGUS PUTRA", ttl: "KEBUMEN, 19 Juni 2013", mat: "30.00", pMat: "Kurang", ind: "50.00", pInd: "Memadai" },
+            { no: "025", nopes: "T1-26-01-05-0435-0025-8", nisn: "3135674465", nama: "KINARA DIANINA", ttl: "JAKARTA, 23 April 2013", mat: "40.00", pMat: "Memadai", ind: "63.33", pInd: "Memadai" },
+            { no: "026", nopes: "T1-26-01-05-0435-0026-7", nisn: "3139967036", nama: "MUHAMMAD AZKA ANARYA AZFAR", ttl: "JAKARTA, 8 April 2013", mat: "50.00", pMat: "Memadai", ind: "56.67", pInd: "Memadai" },
+            { no: "027", nopes: "T1-26-01-05-0435-0027-6", nisn: "3132343615", nama: "NURUL AENI", ttl: "JAKARTA, 26 Juni 2013", mat: "63.33", pMat: "Baik", ind: "86.67", pInd: "Baik" },
+            { no: "028", nopes: "T1-26-01-05-0435-0028-5", nisn: "0134990438", nama: "RADITYA PUTRA ANDHIANSYAH", ttl: "Jakarta, 21 Mei 2013", mat: "43.33", pMat: "Memadai", ind: "70.00", pInd: "Memadai" },
+            { no: "029", nopes: "T1-26-01-05-0435-0029-4", nisn: "0134576575", nama: "MEY LANNY OLIVIA SARI", ttl: "Jakarta, 1 Mei 2013", mat: "40.00", pMat: "Memadai", ind: "93.33", pInd: "Baik" },
+            { no: "030", nopes: "T1-26-01-05-0435-0030-3", nisn: "0137068903", nama: "CHAYRA AZKIYA LEKSONO", ttl: "Jakarta, 1 Agustus 2013", mat: "76.67", pMat: "Baik", ind: "83.33", pInd: "Baik" },
+            { no: "031", nopes: "T1-26-01-05-0435-0031-2", nisn: "3138584932", nama: "NAURA NIESHA ALVIENA", ttl: "JAKARTA, 31 Maret 2013", mat: "66.67", pMat: "Baik", ind: "90.00", pInd: "Baik" },
+            { no: "032", nopes: "T1-26-01-05-0435-0032-9", nisn: "0137267896", nama: "MUHAMMAD FA'AL ZEIN ISMAM", ttl: "JAKARTA, 7 Maret 2013", mat: "60.00", pMat: "Baik", ind: "80.00", pInd: "Baik" }
+        ];
+
+        function bukaHalamanPencarian() {
+            const viewSambutan = document.getElementById('view-sambutan');
+            const viewPencarian = document.getElementById('view-pencarian');
+            viewSambutan.style.opacity = '0';
+            viewSambutan.style.transition = 'opacity 0.4s ease';
+            setTimeout(() => {
+                viewSambutan.classList.add('hidden');
+                viewPencarian.classList.remove('hidden');
+                viewPencarian.classList.add('fade-up');
+                document.getElementById('search-input').focus();
+            }, 400);
+        }
+
+        const form = document.getElementById('search-form');
+        const input = document.getElementById('search-input');
+        const errorMsg = document.getElementById('error-msg');
+        const resultSection = document.getElementById('result-section');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Konversi paksa input menjadi string murni agar NISN dengan angka 0 di depan terbaca sempurna
+            const query = input.value.trim().toString();
+
+            if (!query) {
+                showError("Silakan masukkan NISN Anda.");
+                return;
+            }
+
+            const result = students.find(s => s.nisn.toString() === query);
+
+            if (!result) {
+                showError("NISN tidak ditemukan. Pastikan nomor yang dimasukkan benar.");
+                resultSection.classList.add('hidden');
+                return;
+            }
+
+            hideError();
+            resultSection.classList.add('hidden');
+            const loadingState = document.getElementById('loading-state');
+            loadingState.classList.remove('hidden');
+
+            setTimeout(() => {
+                loadingState.classList.add('hidden');
+                showResult(result);
+            }, 1200);
+        });
+
+        function showError(msg) { errorMsg.textContent = msg; errorMsg.classList.remove('hidden'); }
+        function hideError() { errorMsg.classList.add('hidden'); }
+
+        function showResult(student) {
+            const avg = ((parseFloat(student.mat) + parseFloat(student.ind)) / 2).toFixed(2);
+
+            resultSection.innerHTML = `
+                <div class="result-card bg-white border border-gray-200 shadow-sm rounded-xl p-6 md:p-8 relative overflow-hidden">
+                    
+                    <!-- Watermark -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none no-print">
+                        <img src="logo.png" alt="watermark" class="w-64 h-64 object-contain grayscale" onerror="this.style.display='none'">
+                    </div>
+
+                    <div class="relative z-10 text-center border-b-2 border-dashed border-gray-200 pb-5 mb-6">
+                        <h4 class="text-lg md:text-xl font-bold text-schoolBlue-900 tracking-wide uppercase mb-1">TRANSKRIP NILAI KOMPETENSI AKADEMIK</h4>
+                        <span class="inline-block px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-bold tracking-wider border border-gray-200">Nomor Peserta: ${student.nopes}</span>
+                    </div>
+
+                    <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-6 text-sm mb-8 bg-gradient-to-br from-schoolBlue-50/50 to-white p-6 rounded-xl border border-schoolBlue-100 shadow-sm">
+                        <div>
+                            <p class="text-[11px] text-schoolBlue-600 font-bold uppercase tracking-widest mb-1.5">Nama Peserta</p>
+                            <p class="font-bold text-schoolDark-900 text-base uppercase">${student.nama}</p>
+                        </div>
+                        <div>
+                            <p class="text-[11px] text-schoolBlue-600 font-bold uppercase tracking-widest mb-1.5">NISN</p>
+                            <p class="font-bold text-schoolDark-900 text-base">${student.nisn}</p>
+                        </div>
+                        <div>
+                            <p class="text-[11px] text-schoolBlue-600 font-bold uppercase tracking-widest mb-1.5">Tempat, Tanggal Lahir</p>
+                            <p class="font-medium text-schoolDark-700 capitalize">${student.ttl.toLowerCase()}</p>
+                        </div>
+                        <div>
+                            <p class="text-[11px] text-schoolBlue-600 font-bold uppercase tracking-widest mb-1.5">Satuan Pendidikan</p>
+                            <p class="font-medium text-schoolDark-700 font-semibold">SDN Pisangan Timur 01</p>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 overflow-hidden border border-schoolBlue-100 rounded-xl mb-8 shadow-sm">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-schoolBlue-900 text-white font-bold tracking-wide">
+                                    <th class="p-4 w-1/2 rounded-tl-xl">Mata Pelajaran Uji</th>
+                                    <th class="p-4 text-center border-l border-schoolBlue-700">Nilai</th>
+                                    <th class="p-4 text-center border-l border-schoolBlue-700 rounded-tr-xl">Kategori Kompetensi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 bg-white">
+                                <tr class="hover:bg-schoolBlue-50/30 transition-colors">
+                                    <td class="p-4 font-semibold text-schoolDark-900">Matematika</td>
+                                    <td class="p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.mat}</td>
+                                    <td class="p-4 text-center border-l border-gray-100"><span class="inline-flex px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pMat)} shadow-sm">${student.pMat}</span></td>
+                                </tr>
+                                <tr class="hover:bg-schoolBlue-50/30 transition-colors">
+                                    <td class="p-4 font-semibold text-schoolDark-900">Bahasa Indonesia</td>
+                                    <td class="p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.ind}</td>
+                                    <td class="p-4 text-center border-l border-gray-100"><span class="inline-flex px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pInd)} shadow-sm">${student.pInd}</span></td>
+                                </tr>
+                                <tr class="bg-schoolBlue-50 text-schoolBlue-900 font-bold border-t border-schoolBlue-200">
+                                    <td class="p-4 text-right">Rata-Rata Nilai Kombinasi</td>
+                                    <td class="p-4 text-center text-lg text-schoolBlue-700 border-l border-schoolBlue-200">${avg}</td>
+                                    <td class="p-4 text-center text-xs font-semibold text-schoolBlue-600 border-l border-schoolBlue-200 uppercase tracking-wider">Nilai Kumulatif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-gray-100">
+                        <div class="text-center sm:text-left text-xs text-schoolDark-500 space-y-1">
+                            <p>Kode Validasi Cetak: <span class="font-bold text-schoolDark-700 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">D01050435</span></p>
+                            <p>Sistem Pengumuman Terverifikasi Terpusat</p>
+                        </div>
+                        <button onclick="window.print()" class="no-print inline-flex items-center justify-center gap-2 bg-schoolDark-900 hover:bg-black active:scale-95 text-white font-bold py-3 px-6 rounded-xl text-sm shadow-lg shadow-gray-900/20 transition-all duration-200 cursor-pointer w-full sm:w-auto">
+                            <i data-lucide="printer" class="w-4 h-4"></i> Cetak Hasil (PDF)
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            resultSection.classList.remove('hidden');
+            lucide.createIcons();
+
+            // Efek Confetti mini apresiasi pencapaian akademik
+            const schoolColors = ['#0ea5e9', '#16a34a', '#ffffff'];
+            confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 }, colors: schoolColors });
+        }
+
+        function getBadgeClass(predikat) {
+            const p = predikat.toLowerCase();
+            if (p.includes('istimewa')) return 'bg-purple-100 text-purple-800 border border-purple-200';
+            if (p.includes('baik')) return 'bg-emerald-100 text-emerald-800 border border-emerald-200';
+            if (p.includes('memadai')) return 'bg-blue-100 text-blue-800 border border-blue-200';
+            return 'bg-amber-100 text-amber-800 border border-amber-200';
+        }
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
