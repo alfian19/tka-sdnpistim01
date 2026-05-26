@@ -256,7 +256,7 @@
                             Anak-anakku siswa Kelas VI yang Ibu sayangi dan banggakan,<br>
                             Pelaksanaan Tes Kemampuan Akademik (TKA) Tahun 2026 ini merupakan salah satu instrumen
                             penting dalam mengukur dan memetakan capaian kompetensi dasar yang telah kalian pelajari.
-                            Hasil yang tercantum merupakan cerminan dari kesungguhan, kerja
+                            Hasil yang tercantum dalam dokumen kolektif ini adalah cerminan dari kesungguhan, kerja
                             keras, dan proses belajar yang telah kalian lalui bersama bapak dan ibu guru di
                             sekolah.<br><br>
                             Jadikanlah hasil evaluasi akademik ini sebagai motivasi diri sekaligus kompas penunjuk arah
@@ -266,12 +266,13 @@
                             karakter yang mulia."
                         </p>
                         <div class="inline-block border-t-2 border-schoolRed-500 pt-3 mb-8 px-6">
-                            <p class="text-sm font-bold text-schoolDark-900">ANNA SAMOSIR, S.Pd.SD.M.Si.</p>
+                            <p class="text-sm font-bold text-schoolDark-900">Anna Samosir, S.Pd., SD., M.Si.</p>
+                            <p class="text-xs text-schoolDark-500 font-medium mt-0.5">NIP. 197303122000032004</p>
                         </div>
                         <div class="text-center">
                             <button onclick="bukaHalamanPencarian()"
                                 class="inline-flex items-center gap-2 bg-schoolBlue-600 hover:bg-schoolBlue-700 active:scale-95 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg shadow-schoolBlue-600/20 transition-all duration-200 cursor-pointer group">
-                                Lanjut Cek Hasil Nilai TKA <i data-lucide="arrow-right"
+                                Lanjut Cek Hasil TKA <i data-lucide="arrow-right"
                                     class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                             </button>
                         </div>
@@ -281,7 +282,7 @@
 
             <!-- VIEW 2: PENCARIAN -->
             <div id="view-pencarian" class="hidden">
-                <section class="px-6 md:px-12 py-8 no-print border-b border-gray-100">
+                <section id="form-section" class="px-6 md:px-12 py-8 no-print border-b border-gray-100">
                     <div class="text-center mb-6">
                         <div
                             class="inline-flex items-center justify-center w-12 h-12 bg-schoolBlue-50 text-schoolBlue-600 rounded-full mb-3 border border-schoolBlue-100">
@@ -357,7 +358,7 @@
             { no: "017", nopes: "T1-26-01-05-0435-0017-8", nisn: "3128361300", nama: "HAIKAL YUSUF HABIBIE", ttl: "JAKARTA, 21 September 2012", mat: "53.33", pMat: "Memadai", ind: "80.00", pInd: "Baik" },
             { no: "018", nopes: "T1-26-01-05-0435-0018-7", nisn: "3121196409", nama: "NAZWA RIZKIA", ttl: "SERANG, 6 Oktober 2012", mat: "50.00", pMat: "Memadai", ind: "46.67", pInd: "Kurang" },
             { no: "019", nopes: "T1-26-01-05-0435-0019-6", nisn: "3134311386", nama: "ICHSAN SABRY", ttl: "JAKARTA, 3 Januari 2013", mat: "63.33", pMat: "Baik", ind: "80.00", pInd: "Baik" },
-            { no: "020", nopes: "T1-26-01-05-0435-0020-5", nisn: "3121913751", nama: "ABI PUTRA PRAKASA", ttl: "JAKARTA, 5 Desember 2012", mat: "53.33", pMat: "Memadai", ind: "93.33", pInd: "Baik" },
+            { no: "020", nopes: "T1-26-01-05-0435-0020-5", nisn: "https://s.id/pistim01", nama: "ABI PUTRA PRAKASA", ttl: "JAKARTA, 5 Desember 2012", mat: "53.33", pMat: "Memadai", ind: "93.33", pInd: "Baik" },
             { no: "021", nopes: "T1-26-01-05-0435-0021-4", nisn: "3125178647", nama: "GESANG MANGUN KUSUMO", ttl: "JAKARTA, 21 Oktober 2012", mat: "66.67", pMat: "Baik", ind: "83.33", pInd: "Baik" },
             { no: "022", nopes: "T1-26-01-05-0435-0022-3", nisn: "3129852051", nama: "FIKRY SETIAWAN", ttl: "BEKASI, 7 Oktober 2012", mat: "36.67", pMat: "Memadai", ind: "76.67", pInd: "Baik" },
             { no: "023", nopes: "T1-26-01-05-0435-0023-2", nisn: "0138982196", nama: "MADE RAJENDRA SETIAWAN", ttl: "JAKARTA, 8 Oktober 2013", mat: "50.00", pMat: "Memadai", ind: "83.33", pInd: "Baik" },
@@ -410,6 +411,7 @@
             }
 
             hideError();
+            document.getElementById('form-section').classList.add('hidden');
             resultSection.classList.add('hidden');
             const loadingState = document.getElementById('loading-state');
             loadingState.classList.remove('hidden');
@@ -458,43 +460,50 @@
                         </div>
                     </div>
 
-                    <div class="relative z-10 overflow-hidden border border-schoolBlue-100 rounded-xl mb-8 shadow-sm">
-                        <table class="w-full text-left border-collapse text-sm">
-                            <thead>
-                                <tr class="bg-schoolBlue-900 text-white font-bold tracking-wide">
-                                    <th class="p-4 w-1/2 rounded-tl-xl">Mata Pelajaran Uji</th>
-                                    <th class="p-4 text-center border-l border-schoolBlue-700">Nilai</th>
-                                    <th class="p-4 text-center border-l border-schoolBlue-700 rounded-tr-xl">Kategori Kompetensi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 bg-white">
-                                <tr class="hover:bg-schoolBlue-50/30 transition-colors">
-                                    <td class="p-4 font-semibold text-schoolDark-900">Matematika</td>
-                                    <td class="p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.mat}</td>
-                                    <td class="p-4 text-center border-l border-gray-100"><span class="inline-flex px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pMat)} shadow-sm">${student.pMat}</span></td>
-                                </tr>
-                                <tr class="hover:bg-schoolBlue-50/30 transition-colors">
-                                    <td class="p-4 font-semibold text-schoolDark-900">Bahasa Indonesia</td>
-                                    <td class="p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.ind}</td>
-                                    <td class="p-4 text-center border-l border-gray-100"><span class="inline-flex px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pInd)} shadow-sm">${student.pInd}</span></td>
-                                </tr>
-                                <tr class="bg-schoolBlue-50 text-schoolBlue-900 font-bold border-t border-schoolBlue-200">
-                                    <td class="p-4 text-right">Rata-Rata Nilai Kombinasi</td>
-                                    <td class="p-4 text-center text-lg text-schoolBlue-700 border-l border-schoolBlue-200">${avg}</td>
-                                    <td class="p-4 text-center text-xs font-semibold text-schoolBlue-600 border-l border-schoolBlue-200 uppercase tracking-wider">Nilai Kumulatif</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="relative z-10 border border-schoolBlue-100 rounded-xl mb-8 shadow-sm overflow-hidden">
+                        <div class="overflow-x-auto w-full">
+                            <table class="w-full min-w-[450px] text-left border-collapse text-sm">
+                                <thead>
+                                    <tr class="bg-schoolBlue-900 text-white font-bold tracking-wide">
+                                        <th class="p-3 sm:p-4 w-1/2 whitespace-nowrap sm:whitespace-normal">Mata Pelajaran Uji</th>
+                                        <th class="p-3 sm:p-4 text-center border-l border-schoolBlue-700">Nilai</th>
+                                        <th class="p-3 sm:p-4 text-center border-l border-schoolBlue-700 whitespace-nowrap sm:whitespace-normal">Kategori Kompetensi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 bg-white">
+                                    <tr class="hover:bg-schoolBlue-50/30 transition-colors">
+                                        <td class="p-3 sm:p-4 font-semibold text-schoolDark-900 whitespace-nowrap sm:whitespace-normal">Matematika</td>
+                                        <td class="p-3 sm:p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.mat}</td>
+                                        <td class="p-3 sm:p-4 text-center border-l border-gray-100"><span class="inline-flex px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pMat)} shadow-sm whitespace-nowrap">${student.pMat}</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-schoolBlue-50/30 transition-colors">
+                                        <td class="p-3 sm:p-4 font-semibold text-schoolDark-900 whitespace-nowrap sm:whitespace-normal">Bahasa Indonesia</td>
+                                        <td class="p-3 sm:p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.ind}</td>
+                                        <td class="p-3 sm:p-4 text-center border-l border-gray-100"><span class="inline-flex px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pInd)} shadow-sm whitespace-nowrap">${student.pInd}</span></td>
+                                    </tr>
+                                    <tr class="bg-schoolBlue-50 text-schoolBlue-900 font-bold border-t border-schoolBlue-200">
+                                        <td class="p-3 sm:p-4 text-right text-xs sm:text-sm whitespace-nowrap sm:whitespace-normal">Rata-Rata Nilai Kombinasi</td>
+                                        <td class="p-3 sm:p-4 text-center text-base sm:text-lg text-schoolBlue-700 border-l border-schoolBlue-200">${avg}</td>
+                                        <td class="p-3 sm:p-4 text-center text-[10px] sm:text-xs font-semibold text-schoolBlue-600 border-l border-schoolBlue-200 uppercase tracking-wider whitespace-nowrap">Nilai Kumulatif</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 pt-4 border-t border-gray-100">
                         <div class="text-center sm:text-left text-xs text-schoolDark-500 space-y-1">
-                            <p>Kode Validasi Cetak: <span class="font-bold text-schoolDark-700 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">D01050435</span></p>
+                            <p>Kode Validasi: <span class="font-mono font-bold text-schoolDark-700 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">TKA-${student.nisn.substring(6)}-${Math.floor(Math.random() * 9000 + 1000)}</span></p>
                             <p>Sistem Pengumuman Terverifikasi Terpusat</p>
                         </div>
-                        <button onclick="window.print()" class="no-print inline-flex items-center justify-center gap-2 bg-schoolDark-900 hover:bg-black active:scale-95 text-white font-bold py-3 px-6 rounded-xl text-sm shadow-lg shadow-gray-900/20 transition-all duration-200 cursor-pointer w-full sm:w-auto">
-                            <i data-lucide="printer" class="w-4 h-4"></i> Cetak Hasil (PDF)
-                        </button>
+                        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto no-print">
+                            <button onclick="resetPencarian()" class="inline-flex items-center justify-center gap-2 bg-white border border-schoolBlue-200 hover:bg-schoolBlue-50 hover:border-schoolBlue-300 active:scale-95 text-schoolBlue-700 font-bold py-2.5 px-5 rounded-xl text-sm transition-all duration-200 cursor-pointer w-full sm:w-auto">
+                                <i data-lucide="refresh-ccw" class="w-4 h-4"></i> Cari Lagi
+                            </button>
+                            <button onclick="window.print()" class="inline-flex items-center justify-center gap-2 bg-schoolDark-900 hover:bg-black active:scale-95 text-white font-bold py-2.5 px-6 rounded-xl text-sm shadow-lg shadow-gray-900/20 transition-all duration-200 cursor-pointer w-full sm:w-auto">
+                                <i data-lucide="printer" class="w-4 h-4"></i> Cetak (PDF)
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -503,8 +512,15 @@
             lucide.createIcons();
 
             // Efek Confetti mini apresiasi pencapaian akademik
-            const schoolColors = ['#0ea5e9', '#16a34a', '#ffffff'];
+            const schoolColors = ['#1d4ed8', '#be123c', '#ffffff'];
             confetti({ particleCount: 60, spread: 60, origin: { y: 0.7 }, colors: schoolColors });
+        }
+
+        function resetPencarian() {
+            document.getElementById('result-section').classList.add('hidden');
+            document.getElementById('form-section').classList.remove('hidden');
+            document.getElementById('search-input').value = '';
+            document.getElementById('search-input').focus();
         }
 
         function getBadgeClass(predikat) {
