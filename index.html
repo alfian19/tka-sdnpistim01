@@ -266,8 +266,7 @@
                             karakter yang mulia."
                         </p>
                         <div class="inline-block border-t-2 border-schoolRed-500 pt-3 mb-8 px-6">
-                            <p class="text-sm font-bold text-schoolDark-900">Anna Samosir, S.Pd., SD., M.Si.</p>
-                            <p class="text-xs text-schoolDark-500 font-medium mt-0.5">NIP. 197303122000032004</p>
+                            <p class="text-sm font-bold text-schoolDark-900">ANNA SAMOSIR, S.Pd.SD.M.Si.</p>
                         </div>
                         <div class="text-center">
                             <button onclick="bukaHalamanPencarian()"
@@ -462,29 +461,29 @@
 
                     <div class="relative z-10 border border-schoolBlue-100 rounded-xl mb-8 shadow-sm overflow-hidden">
                         <div class="overflow-x-auto w-full">
-                            <table class="w-full min-w-[450px] text-left border-collapse text-sm">
+                            <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                 <thead>
                                     <tr class="bg-schoolBlue-900 text-white font-bold tracking-wide">
-                                        <th class="p-3 sm:p-4 w-1/2 whitespace-nowrap sm:whitespace-normal">Mata Pelajaran Uji</th>
-                                        <th class="p-3 sm:p-4 text-center border-l border-schoolBlue-700">Nilai</th>
-                                        <th class="p-3 sm:p-4 text-center border-l border-schoolBlue-700 whitespace-nowrap sm:whitespace-normal">Kategori Kompetensi</th>
+                                        <th class="px-3 py-3.5 sm:p-4 w-[40%] sm:w-1/2 rounded-tl-xl">Mata Pelajaran Uji</th>
+                                        <th class="px-2 py-3.5 sm:p-4 w-[20%] text-center border-l border-schoolBlue-700">Nilai</th>
+                                        <th class="px-3 py-3.5 sm:p-4 w-[40%] sm:w-auto text-center border-l border-schoolBlue-700 rounded-tr-xl">Kategori Kompetensi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-100 bg-white">
                                     <tr class="hover:bg-schoolBlue-50/30 transition-colors">
-                                        <td class="p-3 sm:p-4 font-semibold text-schoolDark-900 whitespace-nowrap sm:whitespace-normal">Matematika</td>
-                                        <td class="p-3 sm:p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.mat}</td>
-                                        <td class="p-3 sm:p-4 text-center border-l border-gray-100"><span class="inline-flex px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pMat)} shadow-sm whitespace-nowrap">${student.pMat}</span></td>
+                                        <td class="px-3 py-3.5 sm:p-4 font-semibold text-schoolDark-900">Matematika</td>
+                                        <td class="px-2 py-3.5 sm:p-4 text-center font-bold text-schoolBlue-800 text-sm sm:text-base border-l border-gray-100">${student.mat}</td>
+                                        <td class="px-3 py-3.5 sm:p-4 text-center border-l border-gray-100"><span class="inline-flex px-2 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pMat)} shadow-sm whitespace-nowrap">${student.pMat}</span></td>
                                     </tr>
                                     <tr class="hover:bg-schoolBlue-50/30 transition-colors">
-                                        <td class="p-3 sm:p-4 font-semibold text-schoolDark-900 whitespace-nowrap sm:whitespace-normal">Bahasa Indonesia</td>
-                                        <td class="p-3 sm:p-4 text-center font-bold text-schoolBlue-800 text-base border-l border-gray-100">${student.ind}</td>
-                                        <td class="p-3 sm:p-4 text-center border-l border-gray-100"><span class="inline-flex px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pInd)} shadow-sm whitespace-nowrap">${student.pInd}</span></td>
+                                        <td class="px-3 py-3.5 sm:p-4 font-semibold text-schoolDark-900">Bahasa Indonesia</td>
+                                        <td class="px-2 py-3.5 sm:p-4 text-center font-bold text-schoolBlue-800 text-sm sm:text-base border-l border-gray-100">${student.ind}</td>
+                                        <td class="px-3 py-3.5 sm:p-4 text-center border-l border-gray-100"><span class="inline-flex px-2 py-1 rounded-full text-[10px] sm:text-[11px] uppercase tracking-wider font-bold ${getBadgeClass(student.pInd)} shadow-sm whitespace-nowrap">${student.pInd}</span></td>
                                     </tr>
                                     <tr class="bg-schoolBlue-50 text-schoolBlue-900 font-bold border-t border-schoolBlue-200">
-                                        <td class="p-3 sm:p-4 text-right text-xs sm:text-sm whitespace-nowrap sm:whitespace-normal">Rata-Rata Nilai Kombinasi</td>
-                                        <td class="p-3 sm:p-4 text-center text-base sm:text-lg text-schoolBlue-700 border-l border-schoolBlue-200">${avg}</td>
-                                        <td class="p-3 sm:p-4 text-center text-[10px] sm:text-xs font-semibold text-schoolBlue-600 border-l border-schoolBlue-200 uppercase tracking-wider whitespace-nowrap">Nilai Kumulatif</td>
+                                        <td class="px-3 py-3.5 sm:p-4 text-right text-xs sm:text-sm">Rata-Rata Nilai Kombinasi</td>
+                                        <td class="px-2 py-3.5 sm:p-4 text-center text-sm sm:text-lg text-schoolBlue-700 border-l border-schoolBlue-200">${avg}</td>
+                                        <td class="px-3 py-3.5 sm:p-4 text-center text-[10px] sm:text-xs font-semibold text-schoolBlue-600 border-l border-schoolBlue-200 uppercase tracking-wider">Nilai Kumulatif</td>
                                     </tr>
                                 </tbody>
                             </table>
